@@ -1,20 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Import NOVATEK Brand Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
 
-@layer base {
-  :root {
-    --color-primary: #0A2540;
-    --color-primary-light: #1E4976;
-    --color-primary-accent: #2E5C8A;
-    --color-neutral-bg: #F5F7FA;
-    --color-text-primary: #1A1A1A;
-    --color-text-secondary: #6B7280;
-  }
+@theme {
+  /* NOVATEK Brand Colors */
+  --color-primary: #0A2540;
+  --color-primary-light: #1E4976;
+  --color-primary-accent: #2E5C8A;
+  --color-neutral-bg: #F5F7FA;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
 
+  /* Font Families */
+  --font-family-sans: Inter, system-ui, sans-serif;
+  --font-family-heading: Poppins, system-ui, sans-serif;
+}
+
+@layer base {
   body {
     @apply font-sans text-text-primary bg-neutral-bg;
   }
