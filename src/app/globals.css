@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import NOVATEK Brand Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
+@layer base {
+  :root {
+    --color-primary: #0A2540;
+    --color-primary-light: #1E4976;
+    --color-primary-accent: #2E5C8A;
+    --color-neutral-bg: #F5F7FA;
+    --color-text-primary: #1A1A1A;
+    --color-text-secondary: #6B7280;
+  }
+
+  body {
+    @apply font-sans text-text-primary bg-neutral-bg;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-light rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
