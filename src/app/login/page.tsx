@@ -94,7 +94,7 @@ export default function LoginPage() {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-content-muted">
-                Don't have an account?{' '}
+                Don&apos;t have an account?{' '}
                 <a href="#" className="text-primary hover:text-primary-accent font-medium">
                   Contact your administrator
                 </a>
