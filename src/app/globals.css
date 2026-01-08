@@ -1,29 +1,28 @@
 @import "tailwindcss";
 
-/* Import NOVATEK Brand Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
-
 @theme {
   /* NOVATEK Brand Colors */
   --color-primary: #0A2540;
   --color-primary-light: #1E4976;
   --color-primary-accent: #2E5C8A;
-  --color-neutral-bg: #F5F7FA;
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #6B7280;
+  --color-surface: #F5F7FA;
+  --color-content: #1A1A1A;
+  --color-content-muted: #6B7280;
 
   /* Font Families */
-  --font-family-sans: Inter, system-ui, sans-serif;
-  --font-family-heading: Poppins, system-ui, sans-serif;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-heading: 'Poppins', system-ui, sans-serif;
 }
 
 @layer base {
   body {
-    @apply font-sans text-text-primary bg-neutral-bg;
+    font-family: var(--font-family-sans);
+    color: var(--color-content);
+    background-color: var(--color-surface);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    font-family: var(--font-family-heading);
   }
 }
 
@@ -35,14 +34,15 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-neutral-bg;
+    background-color: var(--color-surface);
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary-light rounded;
+    background-color: var(--color-primary-light);
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary;
+    background-color: var(--color-primary);
   }
 }

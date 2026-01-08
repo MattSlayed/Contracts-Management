@@ -68,7 +68,7 @@ export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
   ...props
 }) => {
   return (
-    <h3 className={`text-xl font-heading font-semibold text-text-primary ${className}`} {...props}>
+    <h3 className={`text-xl font-heading font-semibold text-content ${className}`} {...props}>
       {children}
     </h3>
   );
@@ -80,7 +80,7 @@ export const CardDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement
   ...props
 }) => {
   return (
-    <p className={`text-sm text-text-secondary mt-1 ${className}`} {...props}>
+    <p className={`text-sm text-content-muted mt-1 ${className}`} {...props}>
       {children}
     </p>
   );

@@ -10,7 +10,7 @@ interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
-    <div className="flex h-screen bg-neutral-bg">
+    <div className="flex h-screen bg-surface">
       {/* Sidebar */}
       <Sidebar />
 

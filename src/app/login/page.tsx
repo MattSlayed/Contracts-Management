@@ -34,8 +34,8 @@ export default function LoginPage() {
         <Card variant="elevated">
           <CardContent>
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-heading font-bold text-text-primary">Welcome Back</h2>
-              <p className="text-text-secondary mt-1">Sign in to your account to continue</p>
+              <h2 className="text-2xl font-heading font-bold text-content">Welcome Back</h2>
+              <p className="text-content-muted mt-1">Sign in to your account to continue</p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4">
@@ -75,7 +75,7 @@ export default function LoginPage() {
                     type="checkbox"
                     className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
                   />
-                  <span className="ml-2 text-sm text-text-secondary">Remember me</span>
+                  <span className="ml-2 text-sm text-content-muted">Remember me</span>
                 </label>
                 <a href="#" className="text-sm text-primary hover:text-primary-accent">
                   Forgot password?
@@ -93,7 +93,7 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-6 text-center">
-              <p className="text-sm text-text-secondary">
+              <p className="text-sm text-content-muted">
                 Don't have an account?{' '}
                 <a href="#" className="text-primary hover:text-primary-accent font-medium">
                   Contact your administrator

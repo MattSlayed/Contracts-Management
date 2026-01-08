@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
             className="w-full px-4 py-2 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
           />
           <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-content-muted"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
         <div className="relative">
           <button
             onClick={() => setShowNotifications(!showNotifications)}
-            className="relative p-2 text-text-secondary hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
+            className="relative p-2 text-content-muted hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
             aria-label="Notifications"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
           {showNotifications && (
             <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
               <div className="px-4 py-2 border-b border-gray-200">
-                <h3 className="font-heading font-semibold text-text-primary">Notifications</h3>
+                <h3 className="font-heading font-semibold text-content">Notifications</h3>
               </div>
               <div className="max-h-96 overflow-y-auto">
                 {/* Mock notifications */}
@@ -65,9 +65,9 @@ export const Header: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Badge variant="warning" size="sm" dot />
                     <div className="flex-1">
-                      <p className="text-sm text-text-primary">Contract expiring soon</p>
-                      <p className="text-xs text-text-secondary mt-1">Vendor Agreement ABC expires in 7 days</p>
-                      <p className="text-xs text-text-secondary mt-1">2 hours ago</p>
+                      <p className="text-sm text-content">Contract expiring soon</p>
+                      <p className="text-xs text-content-muted mt-1">Vendor Agreement ABC expires in 7 days</p>
+                      <p className="text-xs text-content-muted mt-1">2 hours ago</p>
                     </div>
                   </div>
                 </div>
@@ -75,9 +75,9 @@ export const Header: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Badge variant="success" size="sm" dot />
                     <div className="flex-1">
-                      <p className="text-sm text-text-primary">Contract uploaded successfully</p>
-                      <p className="text-xs text-text-secondary mt-1">Service Agreement XYZ has been processed</p>
-                      <p className="text-xs text-text-secondary mt-1">5 hours ago</p>
+                      <p className="text-sm text-content">Contract uploaded successfully</p>
+                      <p className="text-xs text-content-muted mt-1">Service Agreement XYZ has been processed</p>
+                      <p className="text-xs text-content-muted mt-1">5 hours ago</p>
                     </div>
                   </div>
                 </div>
@@ -85,9 +85,9 @@ export const Header: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <Badge variant="danger" size="sm" dot />
                     <div className="flex-1">
-                      <p className="text-sm text-text-primary">Risk identified in contract</p>
-                      <p className="text-xs text-text-secondary mt-1">High-risk clause detected in Contract #1234</p>
-                      <p className="text-xs text-text-secondary mt-1">1 day ago</p>
+                      <p className="text-sm text-content">Risk identified in contract</p>
+                      <p className="text-xs text-content-muted mt-1">High-risk clause detected in Contract #1234</p>
+                      <p className="text-xs text-content-muted mt-1">1 day ago</p>
                     </div>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export const Header: React.FC = () => {
 
         {/* Help */}
         <button
-          className="p-2 text-text-secondary hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
+          className="p-2 text-content-muted hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
           aria-label="Help"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -122,10 +122,10 @@ export const Header: React.FC = () => {
               JD
             </div>
             <div className="text-left hidden md:block">
-              <p className="text-sm font-medium text-text-primary">John Doe</p>
-              <p className="text-xs text-text-secondary">Admin</p>
+              <p className="text-sm font-medium text-content">John Doe</p>
+              <p className="text-xs text-content-muted">Admin</p>
             </div>
-            <svg className="w-4 h-4 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-content-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </button>
@@ -134,16 +134,16 @@ export const Header: React.FC = () => {
           {showUserMenu && (
             <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
               <div className="px-4 py-2 border-b border-gray-200">
-                <p className="text-sm font-medium text-text-primary">John Doe</p>
-                <p className="text-xs text-text-secondary">john.doe@novatek.com</p>
+                <p className="text-sm font-medium text-content">John Doe</p>
+                <p className="text-xs text-content-muted">john.doe@novatek.com</p>
               </div>
-              <button className="w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-gray-50 transition-colors">
+              <button className="w-full text-left px-4 py-2 text-sm text-content hover:bg-gray-50 transition-colors">
                 Profile Settings
               </button>
-              <button className="w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-gray-50 transition-colors">
+              <button className="w-full text-left px-4 py-2 text-sm text-content hover:bg-gray-50 transition-colors">
                 Preferences
               </button>
-              <button className="w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-gray-50 transition-colors">
+              <button className="w-full text-left px-4 py-2 text-sm text-content hover:bg-gray-50 transition-colors">
                 Billing
               </button>
               <div className="border-t border-gray-200 my-2"></div>

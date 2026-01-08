@@ -54,8 +54,8 @@ export default function AnalyticsPage() {
         {/* Page Header */}
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-3xl font-heading font-bold text-text-primary">Analytics Dashboard</h1>
-            <p className="text-text-secondary mt-1">Comprehensive insights into your contract portfolio</p>
+            <h1 className="text-3xl font-heading font-bold text-content">Analytics Dashboard</h1>
+            <p className="text-content-muted mt-1">Comprehensive insights into your contract portfolio</p>
           </div>
           <div className="flex gap-3">
             <Select
@@ -76,28 +76,28 @@ export default function AnalyticsPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Total Portfolio Value</p>
-              <h3 className="text-3xl font-heading font-bold text-text-primary">$24.8M</h3>
+              <p className="text-sm text-content-muted mb-1">Total Portfolio Value</p>
+              <h3 className="text-3xl font-heading font-bold text-content">$24.8M</h3>
               <p className="text-sm text-green-600 mt-2">↑ 8.2% from last period</p>
             </CardContent>
           </Card>
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Active Contracts</p>
-              <h3 className="text-3xl font-heading font-bold text-text-primary">2,456</h3>
+              <p className="text-sm text-content-muted mb-1">Active Contracts</p>
+              <h3 className="text-3xl font-heading font-bold text-content">2,456</h3>
               <p className="text-sm text-green-600 mt-2">↑ 12.5% from last period</p>
             </CardContent>
           </Card>
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Avg Contract Value</p>
-              <h3 className="text-3xl font-heading font-bold text-text-primary">$8,712</h3>
-              <p className="text-sm text-text-secondary mt-2">→ No change</p>
+              <p className="text-sm text-content-muted mb-1">Avg Contract Value</p>
+              <h3 className="text-3xl font-heading font-bold text-content">$8,712</h3>
+              <p className="text-sm text-content-muted mt-2">→ No change</p>
             </CardContent>
           </Card>
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Risk Score</p>
+              <p className="text-sm text-content-muted mb-1">Risk Score</p>
               <h3 className="text-3xl font-heading font-bold text-yellow-600">3.2/10</h3>
               <p className="text-sm text-green-600 mt-2">↓ 0.5 from last period</p>
             </CardContent>
@@ -118,11 +118,11 @@ export default function AnalyticsPage() {
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center gap-2">
                         <div className={`w-3 h-3 rounded-full ${item.color}`}></div>
-                        <span className="text-sm font-medium text-text-primary">{item.status}</span>
+                        <span className="text-sm font-medium text-content">{item.status}</span>
                       </div>
                       <div className="text-right">
-                        <span className="text-sm font-bold text-text-primary">{item.count}</span>
-                        <span className="text-xs text-text-secondary ml-2">({item.percentage}%)</span>
+                        <span className="text-sm font-bold text-content">{item.count}</span>
+                        <span className="text-xs text-content-muted ml-2">({item.percentage}%)</span>
                       </div>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
@@ -148,7 +148,7 @@ export default function AnalyticsPage() {
                 {contractTypes.map((item, index) => (
                   <div key={index} className="flex items-center justify-between">
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-text-primary mb-1">{item.type}</p>
+                      <p className="text-sm font-medium text-content mb-1">{item.type}</p>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
                           className="h-2 rounded-full bg-primary"
@@ -157,8 +157,8 @@ export default function AnalyticsPage() {
                       </div>
                     </div>
                     <div className="ml-4 text-right">
-                      <p className="text-sm font-bold text-text-primary">{item.count}</p>
-                      <p className="text-xs text-text-secondary">{item.percentage}%</p>
+                      <p className="text-sm font-bold text-content">{item.count}</p>
+                      <p className="text-xs text-content-muted">{item.percentage}%</p>
                     </div>
                   </div>
                 ))}
@@ -185,8 +185,8 @@ export default function AnalyticsPage() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-xs text-text-secondary mt-2 font-medium">{item.month}</p>
-                  <p className="text-xs text-text-secondary">${item.value}M</p>
+                  <p className="text-xs text-content-muted mt-2 font-medium">{item.month}</p>
+                  <p className="text-xs text-content-muted">${item.value}M</p>
                 </div>
               ))}
             </div>
@@ -209,19 +209,19 @@ export default function AnalyticsPage() {
               {topVendors.map((vendor, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg hover:bg-primary/5 transition-colors cursor-pointer"
+                  className="flex items-center justify-between p-4 bg-surface rounded-lg hover:bg-primary/5 transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 bg-primary text-white rounded-lg flex items-center justify-center font-heading font-bold">
                       {index + 1}
                     </div>
                     <div>
-                      <p className="font-medium text-text-primary">{vendor.name}</p>
-                      <p className="text-sm text-text-secondary">{vendor.contracts} contracts</p>
+                      <p className="font-medium text-content">{vendor.name}</p>
+                      <p className="text-sm text-content-muted">{vendor.contracts} contracts</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="font-bold text-text-primary">{vendor.value}</p>
+                    <p className="font-bold text-content">{vendor.value}</p>
                     <p className={`text-sm ${vendor.trend.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>
                       {vendor.trend}
                     </p>
@@ -245,21 +245,21 @@ export default function AnalyticsPage() {
                   <Badge variant="danger">High Risk</Badge>
                   <span className="text-2xl font-heading font-bold text-red-600">18</span>
                 </div>
-                <p className="text-sm text-text-secondary">Contracts require immediate attention</p>
+                <p className="text-sm text-content-muted">Contracts require immediate attention</p>
               </div>
               <div className="p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="warning">Medium Risk</Badge>
                   <span className="text-2xl font-heading font-bold text-yellow-600">47</span>
                 </div>
-                <p className="text-sm text-text-secondary">Contracts need review and monitoring</p>
+                <p className="text-sm text-content-muted">Contracts need review and monitoring</p>
               </div>
               <div className="p-6 bg-green-50 border border-green-200 rounded-lg">
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="success">Low Risk</Badge>
                   <span className="text-2xl font-heading font-bold text-green-600">2,782</span>
                 </div>
-                <p className="text-sm text-text-secondary">Contracts in good standing</p>
+                <p className="text-sm text-content-muted">Contracts in good standing</p>
               </div>
             </div>
           </CardContent>

@@ -39,7 +39,7 @@ export const TableHeader = React.forwardRef<
   return (
     <thead
       ref={ref}
-      className={`bg-neutral-bg border-b border-gray-200 ${className}`}
+      className={`bg-surface border-b border-gray-200 ${className}`}
       {...props}
     >
       {children}
@@ -83,7 +83,7 @@ export const TableHead = React.forwardRef<
   return (
     <th
       ref={ref}
-      className={`px-6 py-3 text-left text-xs font-semibold text-text-primary uppercase tracking-wider ${className}`}
+      className={`px-6 py-3 text-left text-xs font-semibold text-content uppercase tracking-wider ${className}`}
       {...props}
     >
       {children}
@@ -100,7 +100,7 @@ export const TableCell = React.forwardRef<
   return (
     <td
       ref={ref}
-      className={`px-6 py-4 whitespace-nowrap text-text-primary ${className}`}
+      className={`px-6 py-4 whitespace-nowrap text-content ${className}`}
       {...props}
     >
       {children}

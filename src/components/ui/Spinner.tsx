@@ -34,7 +34,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
         aria-label="Loading"
       />
       {text && (
-        <p className={`text-sm ${color === 'white' ? 'text-white' : 'text-text-secondary'}`}>
+        <p className={`text-sm ${color === 'white' ? 'text-white' : 'text-content-muted'}`}>
           {text}
         </p>
       )}
