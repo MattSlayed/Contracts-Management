@@ -120,8 +120,8 @@ export default function DashboardPage() {
         {/* Page Header */}
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-3xl font-heading font-bold text-text-primary">Dashboard</h1>
-            <p className="text-text-secondary mt-1">Welcome back! Here's your contract portfolio overview.</p>
+            <h1 className="text-3xl font-heading font-bold text-content">Dashboard</h1>
+            <p className="text-content-muted mt-1">Welcome back! Here's your contract portfolio overview.</p>
           </div>
           <Button variant="primary">
             <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -138,12 +138,12 @@ export default function DashboardPage() {
               <CardContent>
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-sm text-text-secondary mb-1">{kpi.title}</p>
-                    <h3 className="text-3xl font-heading font-bold text-text-primary">{kpi.value}</h3>
+                    <p className="text-sm text-content-muted mb-1">{kpi.title}</p>
+                    <h3 className="text-3xl font-heading font-bold text-content">{kpi.value}</h3>
                     <p className={`text-sm mt-2 ${
                       kpi.trend === 'up' ? 'text-green-600' :
                       kpi.trend === 'warning' ? 'text-yellow-600' :
-                      'text-text-secondary'
+                      'text-content-muted'
                     }`}>
                       {kpi.change}
                     </p>
@@ -179,16 +179,16 @@ export default function DashboardPage() {
                   {recentContracts.map((contract) => (
                     <div
                       key={contract.id}
-                      className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg hover:bg-primary/5 transition-colors cursor-pointer"
+                      className="flex items-center justify-between p-4 bg-surface rounded-lg hover:bg-primary/5 transition-colors cursor-pointer"
                     >
                       <div className="flex-1">
-                        <h4 className="font-medium text-text-primary">{contract.name}</h4>
-                        <p className="text-sm text-text-secondary mt-1">{contract.party}</p>
+                        <h4 className="font-medium text-content">{contract.name}</h4>
+                        <p className="text-sm text-content-muted mt-1">{contract.party}</p>
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="text-right">
-                          <p className="text-sm font-medium text-text-primary">{contract.value}</p>
-                          <p className="text-xs text-text-secondary">Expires: {contract.expiryDate}</p>
+                          <p className="text-sm font-medium text-content">{contract.value}</p>
+                          <p className="text-xs text-content-muted">Expires: {contract.expiryDate}</p>
                         </div>
                         <Badge
                           variant={
@@ -220,7 +220,7 @@ export default function DashboardPage() {
                   {riskAlerts.map((alert) => (
                     <div
                       key={alert.id}
-                      className="p-3 border-l-4 rounded bg-neutral-bg cursor-pointer hover:bg-primary/5 transition-colors"
+                      className="p-3 border-l-4 rounded bg-surface cursor-pointer hover:bg-primary/5 transition-colors"
                       style={{
                         borderLeftColor:
                           alert.severity === 'high' ? '#dc2626' :
@@ -239,10 +239,10 @@ export default function DashboardPage() {
                         >
                           {alert.severity}
                         </Badge>
-                        <span className="text-xs text-text-secondary">{alert.date}</span>
+                        <span className="text-xs text-content-muted">{alert.date}</span>
                       </div>
-                      <h5 className="text-sm font-medium text-text-primary mb-1">{alert.risk}</h5>
-                      <p className="text-xs text-text-secondary">{alert.contract}</p>
+                      <h5 className="text-sm font-medium text-content mb-1">{alert.risk}</h5>
+                      <p className="text-xs text-content-muted">{alert.contract}</p>
                     </div>
                   ))}
                 </div>
@@ -262,44 +262,44 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-4 bg-neutral-bg rounded-lg">
+              <div className="p-4 bg-surface rounded-lg">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center font-heading font-bold">
                     15
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-text-primary">Feb</p>
-                    <p className="text-xs text-text-secondary">2025</p>
+                    <p className="text-sm font-medium text-content">Feb</p>
+                    <p className="text-xs text-content-muted">2025</p>
                   </div>
                 </div>
-                <p className="text-sm text-text-primary font-medium">License Renewal Due</p>
-                <p className="text-xs text-text-secondary mt-1">TechSoft Solutions</p>
+                <p className="text-sm text-content font-medium">License Renewal Due</p>
+                <p className="text-xs text-content-muted mt-1">TechSoft Solutions</p>
               </div>
-              <div className="p-4 bg-neutral-bg rounded-lg">
+              <div className="p-4 bg-surface rounded-lg">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center font-heading font-bold">
                     22
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-text-primary">Feb</p>
-                    <p className="text-xs text-text-secondary">2025</p>
+                    <p className="text-sm font-medium text-content">Feb</p>
+                    <p className="text-xs text-content-muted">2025</p>
                   </div>
                 </div>
-                <p className="text-sm text-text-primary font-medium">Quarterly Review Meeting</p>
-                <p className="text-xs text-text-secondary mt-1">Global Consultants Inc</p>
+                <p className="text-sm text-content font-medium">Quarterly Review Meeting</p>
+                <p className="text-xs text-content-muted mt-1">Global Consultants Inc</p>
               </div>
-              <div className="p-4 bg-neutral-bg rounded-lg">
+              <div className="p-4 bg-surface rounded-lg">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center font-heading font-bold">
                     28
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-text-primary">Feb</p>
-                    <p className="text-xs text-text-secondary">2025</p>
+                    <p className="text-sm font-medium text-content">Feb</p>
+                    <p className="text-xs text-content-muted">2025</p>
                   </div>
                 </div>
-                <p className="text-sm text-text-primary font-medium">Payment Milestone</p>
-                <p className="text-xs text-text-secondary mt-1">Acme Corp</p>
+                <p className="text-sm text-content font-medium">Payment Milestone</p>
+                <p className="text-xs text-content-muted mt-1">Acme Corp</p>
               </div>
             </div>
           </CardContent>

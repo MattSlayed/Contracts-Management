@@ -34,7 +34,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className="block text-sm font-medium text-text-primary mb-1"
+            className="block text-sm font-medium text-content mb-1"
           >
             {label}
           </label>
@@ -53,7 +53,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           </p>
         )}
         {helperText && !error && (
-          <p id={`${textareaId}-helper`} className="mt-1 text-sm text-text-secondary">
+          <p id={`${textareaId}-helper`} className="mt-1 text-sm text-content-muted">
             {helperText}
           </p>
         )}

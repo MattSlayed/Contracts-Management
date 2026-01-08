@@ -44,7 +44,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={selectId}
-            className="block text-sm font-medium text-text-primary mb-1"
+            className="block text-sm font-medium text-content mb-1"
           >
             {label}
           </label>
@@ -75,7 +75,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           </select>
           {/* Dropdown arrow icon */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-            <svg className="h-5 w-5 text-text-secondary" viewBox="0 0 20 20" fill="currentColor">
+            <svg className="h-5 w-5 text-content-muted" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </div>
@@ -86,7 +86,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           </p>
         )}
         {helperText && !error && (
-          <p id={`${selectId}-helper`} className="mt-1 text-sm text-text-secondary">
+          <p id={`${selectId}-helper`} className="mt-1 text-sm text-content-muted">
             {helperText}
           </p>
         )}

@@ -116,8 +116,8 @@ export default function ContractsPage() {
         {/* Page Header */}
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-3xl font-heading font-bold text-text-primary">Contract Repository</h1>
-            <p className="text-text-secondary mt-1">Manage and organize your contract portfolio</p>
+            <h1 className="text-3xl font-heading font-bold text-content">Contract Repository</h1>
+            <p className="text-content-muted mt-1">Manage and organize your contract portfolio</p>
           </div>
           <Button variant="primary" onClick={() => setShowUploadModal(true)}>
             <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -160,20 +160,20 @@ export default function ContractsPage() {
         {/* Stats Summary */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <p className="text-sm text-text-secondary">Total Contracts</p>
-            <p className="text-2xl font-heading font-bold text-text-primary mt-1">2,847</p>
+            <p className="text-sm text-content-muted">Total Contracts</p>
+            <p className="text-2xl font-heading font-bold text-content mt-1">2,847</p>
           </div>
           <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <p className="text-sm text-text-secondary">Active</p>
+            <p className="text-sm text-content-muted">Active</p>
             <p className="text-2xl font-heading font-bold text-green-600 mt-1">2,456</p>
           </div>
           <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <p className="text-sm text-text-secondary">Expiring Soon</p>
+            <p className="text-sm text-content-muted">Expiring Soon</p>
             <p className="text-2xl font-heading font-bold text-yellow-600 mt-1">24</p>
           </div>
           <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <p className="text-sm text-text-secondary">Total Value</p>
-            <p className="text-2xl font-heading font-bold text-text-primary mt-1">$24.8M</p>
+            <p className="text-sm text-content-muted">Total Value</p>
+            <p className="text-2xl font-heading font-bold text-content mt-1">$24.8M</p>
           </div>
         </div>
 
@@ -196,7 +196,7 @@ export default function ContractsPage() {
                 <TableRow key={contract.id}>
                   <TableCell>
                     <div>
-                      <p className="font-medium text-text-primary">{contract.name}</p>
+                      <p className="font-medium text-content">{contract.name}</p>
                       <div className="flex gap-1 mt-1">
                         {contract.tags.map((tag, index) => (
                           <Badge key={index} variant="neutral" size="sm">
@@ -245,7 +245,7 @@ export default function ContractsPage() {
 
         {/* Pagination */}
         <div className="flex justify-between items-center">
-          <p className="text-sm text-text-secondary">Showing 1-6 of 2,847 contracts</p>
+          <p className="text-sm text-content-muted">Showing 1-6 of 2,847 contracts</p>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" disabled>
               Previous
@@ -272,11 +272,11 @@ export default function ContractsPage() {
       >
         <div className="space-y-4">
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors">
-            <svg className="w-12 h-12 mx-auto text-text-secondary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-12 h-12 mx-auto text-content-muted mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
             </svg>
-            <p className="text-text-primary font-medium mb-1">Drop your file here or click to browse</p>
-            <p className="text-sm text-text-secondary mb-4">Supported formats: PDF, DOCX, DOC (Max 50MB)</p>
+            <p className="text-content font-medium mb-1">Drop your file here or click to browse</p>
+            <p className="text-sm text-content-muted mb-4">Supported formats: PDF, DOCX, DOC (Max 50MB)</p>
             <input
               type="file"
               accept=".pdf,.doc,.docx"
@@ -291,7 +291,7 @@ export default function ContractsPage() {
             </label>
             {selectedFile && (
               <div className="mt-4 p-3 bg-primary/5 rounded-lg">
-                <p className="text-sm text-text-primary">
+                <p className="text-sm text-content">
                   <span className="font-medium">Selected:</span> {selectedFile.name}
                 </p>
               </div>

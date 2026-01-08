@@ -34,8 +34,8 @@ export default function SettingsPage() {
       <div className="space-y-6">
         {/* Page Header */}
         <div>
-          <h1 className="text-3xl font-heading font-bold text-text-primary">Settings</h1>
-          <p className="text-text-secondary mt-1">Manage your account and application preferences</p>
+          <h1 className="text-3xl font-heading font-bold text-content">Settings</h1>
+          <p className="text-content-muted mt-1">Manage your account and application preferences</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -51,7 +51,7 @@ export default function SettingsPage() {
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-left ${
                         activeTab === tab.id
                           ? 'bg-primary text-white'
-                          : 'text-text-secondary hover:bg-gray-50 hover:text-text-primary'
+                          : 'text-content-muted hover:bg-gray-50 hover:text-content'
                       }`}
                     >
                       <span className="text-xl">{tab.icon}</span>
@@ -80,7 +80,7 @@ export default function SettingsPage() {
                         </div>
                         <div>
                           <Button variant="outline" size="sm">Change Photo</Button>
-                          <p className="text-xs text-text-secondary mt-2">JPG, PNG or GIF (Max 2MB)</p>
+                          <p className="text-xs text-content-muted mt-2">JPG, PNG or GIF (Max 2MB)</p>
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
@@ -138,15 +138,15 @@ export default function SettingsPage() {
                     {mockUsers.map((user) => (
                       <div
                         key={user.id}
-                        className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg hover:bg-primary/5 transition-colors"
+                        className="flex items-center justify-between p-4 bg-surface rounded-lg hover:bg-primary/5 transition-colors"
                       >
                         <div className="flex items-center gap-4">
                           <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-heading font-bold">
                             {user.name.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
-                            <p className="font-medium text-text-primary">{user.name}</p>
-                            <p className="text-sm text-text-secondary">{user.email}</p>
+                            <p className="font-medium text-content">{user.name}</p>
+                            <p className="text-sm text-content-muted">{user.email}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-4">
@@ -185,7 +185,7 @@ export default function SettingsPage() {
                 <CardContent>
                   <div className="space-y-6">
                     <div>
-                      <h4 className="font-medium text-text-primary mb-4">Email Notifications</h4>
+                      <h4 className="font-medium text-content mb-4">Email Notifications</h4>
                       <div className="space-y-3">
                         {[
                           { label: 'Contract Expiring Soon', description: 'Get notified 30 days before contract expiration' },
@@ -193,10 +193,10 @@ export default function SettingsPage() {
                           { label: 'Obligation Due Soon', description: 'Reminders for upcoming obligations' },
                           { label: 'Weekly Summary Report', description: 'Receive weekly portfolio summary' },
                         ].map((item, index) => (
-                          <div key={index} className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg">
+                          <div key={index} className="flex items-center justify-between p-4 bg-surface rounded-lg">
                             <div>
-                              <p className="font-medium text-text-primary">{item.label}</p>
-                              <p className="text-sm text-text-secondary">{item.description}</p>
+                              <p className="font-medium text-content">{item.label}</p>
+                              <p className="text-sm text-content-muted">{item.description}</p>
                             </div>
                             <label className="relative inline-flex items-center cursor-pointer">
                               <input type="checkbox" defaultChecked className="sr-only peer" />
@@ -207,16 +207,16 @@ export default function SettingsPage() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-medium text-text-primary mb-4">Push Notifications</h4>
+                      <h4 className="font-medium text-content mb-4">Push Notifications</h4>
                       <div className="space-y-3">
                         {[
                           { label: 'Browser Notifications', description: 'Show desktop notifications' },
                           { label: 'Mobile Notifications', description: 'Push notifications to mobile app' },
                         ].map((item, index) => (
-                          <div key={index} className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg">
+                          <div key={index} className="flex items-center justify-between p-4 bg-surface rounded-lg">
                             <div>
-                              <p className="font-medium text-text-primary">{item.label}</p>
-                              <p className="text-sm text-text-secondary">{item.description}</p>
+                              <p className="font-medium text-content">{item.label}</p>
+                              <p className="text-sm text-content-muted">{item.description}</p>
                             </div>
                             <label className="relative inline-flex items-center cursor-pointer">
                               <input type="checkbox" defaultChecked={index === 0} className="sr-only peer" />
@@ -248,15 +248,15 @@ export default function SettingsPage() {
                     ].map((integration, index) => (
                       <div
                         key={index}
-                        className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg"
+                        className="flex items-center justify-between p-4 bg-surface rounded-lg"
                       >
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center text-2xl">
                             {integration.icon}
                           </div>
                           <div>
-                            <p className="font-medium text-text-primary">{integration.name}</p>
-                            <p className="text-sm text-text-secondary">{integration.description}</p>
+                            <p className="font-medium text-content">{integration.name}</p>
+                            <p className="text-sm text-content-muted">{integration.description}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-3">
@@ -283,24 +283,24 @@ export default function SettingsPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-surface rounded-lg">
                         <div>
-                          <p className="font-medium text-text-primary">Two-Factor Authentication</p>
-                          <p className="text-sm text-text-secondary">Add an extra layer of security to your account</p>
+                          <p className="font-medium text-content">Two-Factor Authentication</p>
+                          <p className="text-sm text-content-muted">Add an extra layer of security to your account</p>
                         </div>
                         <Button variant="primary" size="sm">Enable</Button>
                       </div>
-                      <div className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-surface rounded-lg">
                         <div>
-                          <p className="font-medium text-text-primary">Active Sessions</p>
-                          <p className="text-sm text-text-secondary">Manage devices logged into your account</p>
+                          <p className="font-medium text-content">Active Sessions</p>
+                          <p className="text-sm text-content-muted">Manage devices logged into your account</p>
                         </div>
                         <Button variant="outline" size="sm">View Sessions</Button>
                       </div>
-                      <div className="flex items-center justify-between p-4 bg-neutral-bg rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-surface rounded-lg">
                         <div>
-                          <p className="font-medium text-text-primary">API Keys</p>
-                          <p className="text-sm text-text-secondary">Manage API keys for integrations</p>
+                          <p className="font-medium text-content">API Keys</p>
+                          <p className="text-sm text-content-muted">Manage API keys for integrations</p>
                         </div>
                         <Button variant="outline" size="sm">Manage Keys</Button>
                       </div>
@@ -315,9 +315,9 @@ export default function SettingsPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <div className="p-4 bg-neutral-bg rounded-lg">
-                        <p className="font-medium text-text-primary mb-2">Export Your Data</p>
-                        <p className="text-sm text-text-secondary mb-3">Download a copy of your contract data</p>
+                      <div className="p-4 bg-surface rounded-lg">
+                        <p className="font-medium text-content mb-2">Export Your Data</p>
+                        <p className="text-sm text-content-muted mb-3">Download a copy of your contract data</p>
                         <Button variant="outline" size="sm">Request Export</Button>
                       </div>
                       <div className="p-4 bg-red-50 border border-red-200 rounded-lg">

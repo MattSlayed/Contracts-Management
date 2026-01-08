@@ -135,15 +135,15 @@ export default function ObligationsPage() {
         {/* Page Header */}
         <div className="flex justify-between items-start">
           <div>
-            <h1 className="text-3xl font-heading font-bold text-text-primary">Obligations & Milestones</h1>
-            <p className="text-text-secondary mt-1">Track and manage contract obligations and deadlines</p>
+            <h1 className="text-3xl font-heading font-bold text-content">Obligations & Milestones</h1>
+            <p className="text-content-muted mt-1">Track and manage contract obligations and deadlines</p>
           </div>
           <div className="flex gap-3">
             <div className="bg-white rounded-lg border border-gray-200 p-1 flex">
               <button
                 onClick={() => setViewMode('list')}
                 className={`px-4 py-2 rounded-md transition-colors ${
-                  viewMode === 'list' ? 'bg-primary text-white' : 'text-text-secondary hover:text-text-primary'
+                  viewMode === 'list' ? 'bg-primary text-white' : 'text-content-muted hover:text-content'
                 }`}
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -153,7 +153,7 @@ export default function ObligationsPage() {
               <button
                 onClick={() => setViewMode('calendar')}
                 className={`px-4 py-2 rounded-md transition-colors ${
-                  viewMode === 'calendar' ? 'bg-primary text-white' : 'text-text-secondary hover:text-text-primary'
+                  viewMode === 'calendar' ? 'bg-primary text-white' : 'text-content-muted hover:text-content'
                 }`}
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -174,28 +174,28 @@ export default function ObligationsPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Total Active</p>
-              <h3 className="text-3xl font-heading font-bold text-text-primary">127</h3>
-              <p className="text-sm text-text-secondary mt-2">Across all contracts</p>
+              <p className="text-sm text-content-muted mb-1">Total Active</p>
+              <h3 className="text-3xl font-heading font-bold text-content">127</h3>
+              <p className="text-sm text-content-muted mt-2">Across all contracts</p>
             </CardContent>
           </Card>
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Due This Week</p>
+              <p className="text-sm text-content-muted mb-1">Due This Week</p>
               <h3 className="text-3xl font-heading font-bold text-yellow-600">18</h3>
               <p className="text-sm text-yellow-600 mt-2">Requires attention</p>
             </CardContent>
           </Card>
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Overdue</p>
+              <p className="text-sm text-content-muted mb-1">Overdue</p>
               <h3 className="text-3xl font-heading font-bold text-red-600">3</h3>
               <p className="text-sm text-red-600 mt-2">Immediate action needed</p>
             </CardContent>
           </Card>
           <Card variant="elevated">
             <CardContent>
-              <p className="text-sm text-text-secondary mb-1">Completed This Month</p>
+              <p className="text-sm text-content-muted mb-1">Completed This Month</p>
               <h3 className="text-3xl font-heading font-bold text-green-600">42</h3>
               <p className="text-sm text-green-600 mt-2">↑ 15% from last month</p>
             </CardContent>
@@ -240,15 +240,15 @@ export default function ObligationsPage() {
                         />
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-lg font-heading font-semibold text-text-primary">
+                            <h3 className="text-lg font-heading font-semibold text-content">
                               {obligation.title}
                             </h3>
                             {getPriorityBadge(obligation.priority)}
                             {getStatusBadge(obligation.status)}
                           </div>
-                          <p className="text-sm text-text-secondary mb-2">{obligation.contract}</p>
-                          <p className="text-sm text-text-primary mb-3">{obligation.description}</p>
-                          <div className="flex items-center gap-6 text-sm text-text-secondary">
+                          <p className="text-sm text-content-muted mb-2">{obligation.contract}</p>
+                          <p className="text-sm text-content mb-3">{obligation.description}</p>
+                          <div className="flex items-center gap-6 text-sm text-content-muted">
                             <div className="flex items-center gap-2">
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -264,7 +264,7 @@ export default function ObligationsPage() {
                             <div className={`font-medium ${
                               obligation.status === 'overdue' ? 'text-red-600' :
                               getDaysUntilDue(obligation.dueDate).includes('tomorrow') || getDaysUntilDue(obligation.dueDate).includes('today') ? 'text-yellow-600' :
-                              'text-text-secondary'
+                              'text-content-muted'
                             }`}>
                               {getDaysUntilDue(obligation.dueDate)}
                             </div>
@@ -298,7 +298,7 @@ export default function ObligationsPage() {
             <CardContent>
               <div className="grid grid-cols-7 gap-2">
                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <div key={day} className="text-center font-semibold text-sm text-text-secondary p-2">
+                  <div key={day} className="text-center font-semibold text-sm text-content-muted p-2">
                     {day}
                   </div>
                 ))}
@@ -310,7 +310,7 @@ export default function ObligationsPage() {
                     <div
                       key={i}
                       className={`min-h-[80px] p-2 border rounded-lg ${
-                        dayNum < 1 || dayNum > 29 ? 'bg-gray-50 text-text-secondary' :
+                        dayNum < 1 || dayNum > 29 ? 'bg-gray-50 text-content-muted' :
                         hasObligation ? 'bg-primary/5 border-primary/20 cursor-pointer hover:bg-primary/10' :
                         'bg-white hover:bg-gray-50 cursor-pointer'
                       }`}
