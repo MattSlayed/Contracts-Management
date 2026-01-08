@@ -284,10 +284,8 @@ export default function ContractsPage() {
               className="hidden"
               id="file-upload"
             />
-            <label htmlFor="file-upload">
-              <Button variant="outline" as="span">
-                Choose File
-              </Button>
+            <label htmlFor="file-upload" className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-content hover:bg-gray-50 transition-colors cursor-pointer">
+              Choose File
             </label>
             {selectedFile && (
               <div className="mt-4 p-3 bg-primary/5 rounded-lg">
