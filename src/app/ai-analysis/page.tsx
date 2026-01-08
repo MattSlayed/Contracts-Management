@@ -167,7 +167,7 @@ export default function AIAnalysisPage() {
                   <Card variant="bordered">
                     <CardHeader>
                       <CardTitle>AI-Generated Summary</CardTitle>
-                      <CardDescription>Claude's analysis of the contract overview</CardDescription>
+                      <CardDescription>Claude&apos;s analysis of the contract overview</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="bg-primary/5 p-4 rounded-lg border border-primary/10">
