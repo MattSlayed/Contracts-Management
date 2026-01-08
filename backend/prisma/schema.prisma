@@ -1,0 +1,270 @@
+// Prisma Schema for NOVATEK Contract Management System
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// User & Authentication
+// ============================================
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String    @map("password_hash")
+  firstName     String    @map("first_name")
+  lastName      String    @map("last_name")
+  role          UserRole  @default(USER)
+  isActive      Boolean   @default(true) @map("is_active")
+  lastLoginAt   DateTime? @map("last_login_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  contracts     Contract[]
+  documents     Document[]
+  analyses      Analysis[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  MANAGER
+  USER
+  VIEWER
+}
+
+// ============================================
+// Contract Management
+// ============================================
+
+model Contract {
+  id              String          @id @default(uuid())
+  name            String
+  description     String?
+  partyName       String          @map("party_name")
+  partyEmail      String?         @map("party_email")
+  type            ContractType
+  status          ContractStatus  @default(DRAFT)
+  value           Decimal?        @db.Decimal(15, 2)
+  currency        String          @default("USD")
+  startDate       DateTime?       @map("start_date")
+  expiryDate      DateTime?       @map("expiry_date")
+  renewalDate     DateTime?       @map("renewal_date")
+  autoRenewal     Boolean         @default(false) @map("auto_renewal")
+  renewalNotice   Int?            @map("renewal_notice_days") // Days before expiry to notify
+  tags            String[]        @default([])
+  metadata        Json?           // Flexible storage for custom fields
+  createdAt       DateTime        @default(now()) @map("created_at")
+  updatedAt       DateTime        @updatedAt @map("updated_at")
+
+  // Relations
+  createdBy       User            @relation(fields: [createdById], references: [id])
+  createdById     String          @map("created_by_id")
+  documents       Document[]
+  analyses        Analysis[]
+  obligations     Obligation[]
+  milestones      Milestone[]
+
+  @@index([status])
+  @@index([type])
+  @@index([expiryDate])
+  @@index([partyName])
+  @@map("contracts")
+}
+
+enum ContractType {
+  SERVICE_AGREEMENT
+  LICENSE
+  PROFESSIONAL_SERVICES
+  REAL_ESTATE
+  EMPLOYMENT
+  NDA
+  PARTNERSHIP
+  VENDOR
+  CUSTOMER
+  OTHER
+}
+
+enum ContractStatus {
+  DRAFT
+  PENDING_REVIEW
+  PENDING_APPROVAL
+  ACTIVE
+  EXPIRING_SOON
+  EXPIRED
+  TERMINATED
+  RENEWED
+}
+
+// ============================================
+// Document Management
+// ============================================
+
+model Document {
+  id            String        @id @default(uuid())
+  fileName      String        @map("file_name")
+  originalName  String        @map("original_name")
+  mimeType      String        @map("mime_type")
+  fileSize      Int           @map("file_size") // In bytes
+  storagePath   String        @map("storage_path")
+  version       Int           @default(1)
+  isLatest      Boolean       @default(true) @map("is_latest")
+  checksum      String?       // SHA-256 hash for integrity
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  // Relations
+  contract      Contract      @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  contractId    String        @map("contract_id")
+  uploadedBy    User          @relation(fields: [uploadedById], references: [id])
+  uploadedById  String        @map("uploaded_by_id")
+  analyses      Analysis[]
+
+  @@index([contractId])
+  @@index([isLatest])
+  @@map("documents")
+}
+
+// ============================================
+// AI Analysis
+// ============================================
+
+model Analysis {
+  id              String        @id @default(uuid())
+  type            AnalysisType
+  status          AnalysisStatus @default(PENDING)
+  summary         String?       @db.Text
+  keyTerms        Json?         @map("key_terms")
+  risks           Json?         // Array of risk assessments
+  obligations     Json?         // Extracted obligations
+  clauses         Json?         // Clause-by-clause analysis
+  confidence      Float?        // Overall confidence score (0-100)
+  processingTime  Int?          @map("processing_time_ms") // In milliseconds
+  claudeModel     String?       @map("claude_model")
+  errorMessage    String?       @map("error_message")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  completedAt     DateTime?     @map("completed_at")
+
+  // Relations
+  contract        Contract      @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  contractId      String        @map("contract_id")
+  document        Document?     @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  documentId      String?       @map("document_id")
+  requestedBy     User          @relation(fields: [requestedById], references: [id])
+  requestedById   String        @map("requested_by_id")
+
+  @@index([contractId])
+  @@index([status])
+  @@index([type])
+  @@map("analyses")
+}
+
+enum AnalysisType {
+  FULL_ANALYSIS
+  RISK_ASSESSMENT
+  KEY_TERMS_EXTRACTION
+  OBLIGATION_EXTRACTION
+  CLAUSE_ANALYSIS
+  SUMMARY_ONLY
+  COMPARISON
+}
+
+enum AnalysisStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+// ============================================
+// Contract Obligations
+// ============================================
+
+model Obligation {
+  id            String            @id @default(uuid())
+  title         String
+  description   String            @db.Text
+  party         String            // Which party is responsible
+  deadline      DateTime?
+  frequency     ObligationFreq?   // For recurring obligations
+  status        ObligationStatus  @default(PENDING)
+  priority      Priority          @default(MEDIUM)
+  completedAt   DateTime?         @map("completed_at")
+  notes         String?           @db.Text
+  createdAt     DateTime          @default(now()) @map("created_at")
+  updatedAt     DateTime          @updatedAt @map("updated_at")
+
+  // Relations
+  contract      Contract          @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  contractId    String            @map("contract_id")
+
+  @@index([contractId])
+  @@index([status])
+  @@index([deadline])
+  @@map("obligations")
+}
+
+enum ObligationFreq {
+  ONCE
+  DAILY
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  ANNUALLY
+}
+
+enum ObligationStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  OVERDUE
+  CANCELLED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// ============================================
+// Contract Milestones
+// ============================================
+
+model Milestone {
+  id            String          @id @default(uuid())
+  title         String
+  description   String?         @db.Text
+  dueDate       DateTime        @map("due_date")
+  status        MilestoneStatus @default(UPCOMING)
+  reminderDays  Int?            @map("reminder_days") // Days before to send reminder
+  completedAt   DateTime?       @map("completed_at")
+  createdAt     DateTime        @default(now()) @map("created_at")
+  updatedAt     DateTime        @updatedAt @map("updated_at")
+
+  // Relations
+  contract      Contract        @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  contractId    String          @map("contract_id")
+
+  @@index([contractId])
+  @@index([dueDate])
+  @@index([status])
+  @@map("milestones")
+}
+
+enum MilestoneStatus {
+  UPCOMING
+  DUE_SOON
+  OVERDUE
+  COMPLETED
+  CANCELLED
+}
