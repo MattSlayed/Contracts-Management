@@ -444,15 +444,13 @@ This is proprietary software developed for NOVATEK LLC. Unauthorized copying, mo
 
 For questions, issues, or support:
 
-- **Email**: support@novatek.com
-- **Documentation**: [docs.novatek.com](https://docs.novatek.com)
-- **GitHub Issues**: [github.com/novatek/contract-manager/issues](https://github.com/novatek/contract-manager/issues)
+- **Email**: matthew@novatekllc.co.za
+- **GitHub Issues**: [github.com/MattSlayed/Contracts-Management/issues](https://github.com/MattSlayed/Contracts-Management/issues)
 
 ---
 
 ## 👏 Acknowledgments
 
-- **Anthropic** for Claude AI API
 - **Next.js** team for the excellent framework
 - **Tailwind CSS** for the utility-first CSS framework
 - **NOVATEK team** for requirements and feedback
