@@ -457,4 +457,4 @@ For questions, issues, or support:
 
 ---
 
-**Built with ❤️ by NOVATEK LLC (PTY) LTD**
+**Built by NOVATEK LLC (PTY) LTD**
